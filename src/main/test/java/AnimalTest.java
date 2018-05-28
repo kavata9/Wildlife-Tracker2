@@ -1,5 +1,7 @@
 import org.junit.*;
 import static org.junit.Assert.*;
+import org.sql2o.*;
+
 
 public class AnimalTest {
 
@@ -20,5 +22,20 @@ public class AnimalTest {
     Animal testAnimal = animal1;
     assertEquals("No", testAnimal.getEndangered());
   }
+
+  @Test
+  public void equals_returnsTrueIfNameAreSame_true() {
+    Animal testAnimal = animal1;
+    Animal anotherAnimal = animal1;
+    assertTrue(testAnimal.equals(anotherAnimal));
+  }
+
+  @Test
+  public void save_insertsObjectIntoDatabase_Animal() {
+    Animal testAnimal = animal1;
+    testAnimal.save();
+    assertEquals(true, Animal.all().get(0).equals(testAnimal));
+  }
+
 
 }
