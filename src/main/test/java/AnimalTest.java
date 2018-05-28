@@ -16,7 +16,7 @@ public class AnimalTest {
   }
 
   @Test
-  public void getEndangered_personInstantiatesWithEndangered_No() {
+  public void getEndangered_animalInstantiatesWithEndangered_No() {
     Animal testAnimal = animal1;
     assertEquals("No", testAnimal.getEndangered());
   }
