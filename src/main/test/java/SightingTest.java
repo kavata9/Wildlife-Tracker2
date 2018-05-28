@@ -14,15 +14,21 @@ public class SightingTest {
   }
 
   @Test
-  public void getRangerName_personInstantiatesWithRangerName_Henry() {
+  public void getRangerName_sightingInstantiatesWithRangerName_Henry() {
     Sighting testSighting = sighting1;
     assertEquals("Henry", testSighting.getRangerName());
   }
 
   @Test
-  public void getLocation_personInstantiatesWithLocation_ZoneB() {
+  public void getLocation_sightingInstantiatesWithLocation_ZoneB() {
     Sighting testSighting = sighting1;
     assertEquals("Zone B", testSighting.getLocation());
+  }
+
+  @Test
+  public void getAnimalId_sightingnInstantiatesWithAnimalId_1() {
+    Sighting testSighting = sighting1;
+    assertEquals(1, testSighting.getAnimalId());
   }
 
 }
