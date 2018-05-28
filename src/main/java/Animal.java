@@ -1,4 +1,6 @@
 import org.sql2o.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Animal {
     public String name;
@@ -36,6 +38,15 @@ public class Animal {
             .addParameter("name", this.name)
             .addParameter("endangered", this.endangered)
             .executeUpdate();
+        }
+      }
+
+      public static List<Animal> all() {
+        String sql = "select * from animals";
+        try(Connection con = DB.sql2o.open()) {
+          return con.createQuery(sql)
+          .throwOnMappingFailure(false)
+          .executeAndFetch(Animal.class);
         }
       }
 }
