@@ -38,4 +38,12 @@ public class SightingTest {
     assertTrue(testSighting.equals(anotherSighting));
   }
 
+  @Test
+  public void save_insertsObjectIntoDatabase_Sighting() {
+    Sighting testSighting = sighting1;
+    testSighting.save();
+    assertEquals(true, Sighting.all().get(0).equals(testSighting));
+  }
+
+
 }
