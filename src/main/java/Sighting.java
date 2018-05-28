@@ -18,10 +18,21 @@ public class Sighting {
       public String getLocation() {
         return location;
       }
-      
+
       public int getAnimalId() {
         return animal_id;
       }
+
+      @Override
+  public boolean equals(Object otherSighting) {
+    if (!(otherSighting instanceof Sighting)) {
+      return false;
+    } else {
+      Sighting newSighting = (Sighting) otherSighting;
+      return this.getRangerName().equals(newSighting.getRangerName()) &&
+             this.getLocation().equals(newSighting.getLocation());
+    }
+  }
     
     
 }

@@ -31,4 +31,11 @@ public class SightingTest {
     assertEquals(1, testSighting.getAnimalId());
   }
 
+  @Test
+  public void equals_returnsTrueIfNameAndLocationAreSame_true() {
+    Sighting testSighting = sighting1;
+    Sighting anotherSighting = sighting1;
+    assertTrue(testSighting.equals(anotherSighting));
+  }
+
 }
