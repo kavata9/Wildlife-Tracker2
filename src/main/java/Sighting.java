@@ -10,4 +10,13 @@ public class Sighting {
       this.location = location;
       this.animal_id = animal_id;
     }
+
+    public String getRangerName() {
+        return ranger_name;
+      }
+    
+      public String getLocation() {
+        return location;
+      }
+    
 }

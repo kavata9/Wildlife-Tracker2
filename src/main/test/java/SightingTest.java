@@ -12,4 +12,17 @@ public class SightingTest {
     Sighting testSighting = sighting1;
     assertEquals(true, testSighting instanceof Sighting);
   }
+
+  @Test
+  public void getRangerName_personInstantiatesWithRangerName_Henry() {
+    Sighting testSighting = sighting1;
+    assertEquals("Henry", testSighting.getRangerName());
+  }
+
+  @Test
+  public void getLocation_personInstantiatesWithLocation_ZoneB() {
+    Sighting testSighting = sighting1;
+    assertEquals("Zone B", testSighting.getLocation());
+  }
+
 }
