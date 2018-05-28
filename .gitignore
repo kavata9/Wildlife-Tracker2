@@ -36,3 +36,8 @@ Thumbs.db
 ############
 build/
 .gradle/
+.settings/
+.vscode/
+.classpath
+bin/
+.project
