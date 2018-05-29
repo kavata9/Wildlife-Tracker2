@@ -45,5 +45,23 @@ public class SightingTest {
     assertEquals(true, Sighting.all().get(0).equals(testSighting));
   }
 
+  @Test
+  public void save_assignsIdToSighting() {
+    Sighting testSighting = sighting1;
+    testSighting.save();
+    Sighting savedSighting = Sighting.all().get(0);
+    assertEquals(savedSighting.getId(), testSighting.getId());
+  }
+
+  @Test
+  public void all_returnsAllInstancesOfSighting_true() {
+    Sighting firstSighting = sighting1;
+    firstSighting.save();
+    Sighting secondSighting = sighting2;
+    secondSighting.save();
+    assertEquals(true, Sighting.all().get(0).equals(firstSighting));
+    assertEquals(true, Sighting.all().get(1).equals(secondSighting));
+  }
+
 
 }
