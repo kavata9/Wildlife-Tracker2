@@ -22,7 +22,7 @@ public class App {
 
     post("/sighting/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      String ranger_name = request.queryParams("ranger_name");
+      String rangername = request.queryParams("rangername");
       String location = request.queryParams("location");
       String name = request.queryParams("name");
       String endangered = request.queryParams("endangered").toLowerCase();
@@ -34,7 +34,7 @@ public class App {
         if(newAnimal.completeEndangered(endangered, health, age)) {
           newAnimal.save();
           newAnimal.setEndangered(endangered, health, age);
-          Sighting newSighting = new Sighting(ranger_name, location, newAnimal.getId());
+          Sighting newSighting = new Sighting(rangername, location, newAnimal.getId());
           newSighting.save();
         } else {
           response.redirect("/failure2");
@@ -42,7 +42,7 @@ public class App {
       } else if (endangered.equals("no")) {
         if(newAnimal.completeSave()) {
           newAnimal.save();
-          Sighting newSighting = new Sighting(ranger_name, location, newAnimal.getId());
+          Sighting newSighting = new Sighting(rangername, location, newAnimal.getId());
           newSighting.save();
         } else {
           response.redirect("/failure");

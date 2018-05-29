@@ -4,20 +4,20 @@ import java.util.List;
 import java.sql.Timestamp;
 
 public class Sighting {
-  private String ranger_name;
+  private String rangername;
   private String location;
-  private int animal_id;
+  private int animalid;
   private Timestamp timestamp;
   private int id;
 
-  public Sighting(String ranger_name, String location, int animal_id) {
-    this.ranger_name = ranger_name;
+  public Sighting(String rangername, String location, int animalid) {
+    this.rangername = rangername;
     this.location = location;
-    this.animal_id = animal_id;
+    this.animalid = animalid;
   }
 
   public String getRangerName() {
-    return ranger_name;
+    return rangername;
   }
 
   public String getLocation() {
@@ -25,7 +25,7 @@ public class Sighting {
   }
 
   public int getAnimalId() {
-    return animal_id;
+    return animalid;
   }
 
   public Timestamp getTimestamp() {
@@ -38,9 +38,12 @@ public class Sighting {
 
   public void save() {
     try (Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO sightings (ranger_name, location, animal_id, now()) VALUES (:ranger_name, :location, :animal_id, now())";
-      this.id = (int) con.createQuery(sql, true).addParameter("ranger_name", this.ranger_name)
-          .addParameter("location", this.location).addParameter("animal_id", this.animal_id).executeUpdate().getKey();
+      String sql = "INSERT INTO sightings (rangername, location, animalid, timestamp) VALUES (:rangername, :location, :animalid, now())";
+      this.id = (int) con.createQuery(sql, true)
+      .addParameter("rangername", this.rangername)
+          .addParameter("location", this.location)
+          .addParameter("animalid", this.animalid)
+          .executeUpdate().getKey();
     }
   }
 
