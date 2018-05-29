@@ -72,6 +72,16 @@ public class SightingTest {
     assertEquals(Sighting.find(secondSighting.getId()), secondSighting);
   }
 
+  @Test
+  public void save_recordsTimeOfCreationInDatabase() {
+    Sighting testSighting = sighting1;
+    testSighting.save();
+    Timestamp savedSightingTime = Sighting.find(testSighting.getId()).getTimestamp();
+    Timestamp rightNow = new Timestamp(new Date().getTime());
+    assertEquals(rightNow.getDay(), savedSightingTime.getDay());
+  }
+
+
 
 
 }
