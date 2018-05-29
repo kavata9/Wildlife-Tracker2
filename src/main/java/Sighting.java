@@ -1,4 +1,6 @@
 import org.sql2o.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Sighting {
@@ -48,6 +50,15 @@ public class Sighting {
         .getKey();
     }
   }
+
+  public static List<Sighting> all() {
+    String sql = "select * from sightings";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql)
+      .executeAndFetch(Sighting.class);
+    }
+  }
+
     
     
 }
