@@ -1,3 +1,6 @@
+import org.sql2o.*;
+
+
 public class Sighting {
     private String ranger_name;
     private String location;
